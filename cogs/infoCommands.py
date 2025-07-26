@@ -196,24 +196,24 @@ class InfoCommands(commands.Cog):
 
             embed.add_field(name="", value="\n".join([
                 "**┌  ACCOUNT BASIC INFO**",
-                f"**├─ Name**: {basic_info.get('nickname', 'Not found')}",
+                f"**├─ Nick**: {basic_info.get('nickname', 'Not found')}",
                 f"**├─ UID**: `{uid}`",
-                f"**├─ Level**: {basic_info.get('level', 'Not found')} (Exp: {basic_info.get('exp', '?')})",
-                f"**├─ Region**: {region}",
+                f"**├─ Nivel**: {basic_info.get('level', 'Not found')} (Exp: {basic_info.get('exp', '?')})",
+                f"**├─ Região**: {region}",
                 f"**├─ Likes**: {basic_info.get('liked', 'Not found')}",
-                f"**├─ Honor Score**: {credit_score_info.get('creditScore', 'Not found')}",
-                f"**└─ Signature**: {social_info.get('signature', 'None') or 'None'}"
+                f"**├─ Score**: {credit_score_info.get('creditScore', 'Not found')}",
+                f"**└─ Assinatura**: {social_info.get('signature', 'None') or 'None'}"
             ]), inline=False)
           
 
             embed.add_field(name="", value="\n".join([
                 "**┌  ACCOUNT ACTIVITY**",
-                f"**├─ Most Recent OB**: {basic_info.get('releaseVersion', '?')}",
-                f"**├─ Current BP Badges**: {basic_info.get('badgeCnt', 'Not found')}",
+                f"**├─ Atualização mais recente**: {basic_info.get('releaseVersion', '?')}",
+                f"**├─ Emblemas**: {basic_info.get('badgeCnt', 'Not found')}",
                 f"**├─ BR Rank**: {'' if basic_info.get('showBrRank') else 'Not found'} {basic_info.get('rankingPoints', '?')}",
                 f"**├─ CS Rank**: {'' if basic_info.get('showCsRank') else 'Not found'} {basic_info.get('csRankingPoints', '?')} ",
-                f"**├─ Created At**: {self.convert_unix_timestamp(int(basic_info.get('createAt', 'Not found')))}",
-                f"**└─ Last Login**: {self.convert_unix_timestamp(int(basic_info.get('lastLoginAt', 'Not found')))}"
+                f"**├─ Data de criação**: {self.convert_unix_timestamp(int(basic_info.get('createAt', 'Not found')))}",
+                f"**└─ Último login**: {self.convert_unix_timestamp(int(basic_info.get('lastLoginAt', 'Not found')))}"
 
             ]), inline=False)
 
@@ -222,34 +222,34 @@ class InfoCommands(commands.Cog):
                 f"**├─ Avatar ID**: {profile_info.get('avatarId', 'Not found')}",
                 f"**├─ Banner ID**: {basic_info.get('bannerId', 'Not found')}",
                 f"**├─ Pin ID**: {captain_info.get('pinId', 'Not found') if captain_info else 'Default'}",
-                f"**└─ Equipped Skills**: {profile_info.get('equipedSkills', 'Not found')}"
+                f"**└─ Habilidades**: {profile_info.get('equipedSkills', 'Not found')}"
             ]), inline=False)
 
             embed.add_field(name="", value="\n".join([
                 "**┌  PET DETAILS**",
-                f"**├─ Equipped?**: {'Yes' if pet_info.get('isSelected') else 'Not Found'}",
-                f"**├─ Pet Name**: {pet_info.get('name', 'Not Found')}",
-                f"**├─ Pet Exp**: {pet_info.get('exp', 'Not Found')}",
-                f"**└─ Pet Level**: {pet_info.get('level', 'Not Found')}"
+                f"**├─ Equipado?**: {'Yes' if pet_info.get('isSelected') else 'Not Found'}",
+                f"**├─ Nome**: {pet_info.get('name', 'Not Found')}",
+                f"**├─ Pet XP**: {pet_info.get('exp', 'Not Found')}",
+                f"**└─ Pet Nivel**: {pet_info.get('level', 'Not Found')}"
             ]), inline=False)
 
             if clan_info:
                 guild_info = [
                     "**┌  GUILD INFO**",
-                    f"**├─ Guild Name**: {clan_info.get('clanName', 'Not found')}",
-                    f"**├─ Guild ID**: `{clan_info.get('clanId', 'Not found')}`",
-                    f"**├─ Guild Level**: {clan_info.get('clanLevel', 'Not found')}",
-                    f"**├─ Live Members**: {clan_info.get('memberNum', 'Not found')}/{clan_info.get('capacity', '?')}"
+                    f"**├─ Guilda**: {clan_info.get('clanName', 'Not found')}",
+                    f"**├─ Guilda ID**: `{clan_info.get('clanId', 'Not found')}`",
+                    f"**├─ Guilda Nivel**: {clan_info.get('clanLevel', 'Not found')}",
+                    f"**├─ Online Members**: {clan_info.get('memberNum', 'Not found')}/{clan_info.get('capacity', '?')}"
                 ]
                 if captain_info:
                     guild_info.extend([
                         "**└─ Leader Info**:",
-                        f"    **├─ Leader Name**: {captain_info.get('nickname', 'Not found')}",
-                        f"    **├─ Leader UID**: `{captain_info.get('accountId', 'Not found')}`",
-                        f"    **├─ Leader Level**: {captain_info.get('level', 'Not found')} (Exp: {captain_info.get('exp', '?')})",
-                        f"    **├─ Last Login**: {self.convert_unix_timestamp(int(captain_info.get('lastLoginAt', 'Not found')))}",
-                        f"    **├─ Title**: {captain_info.get('title', 'Not found')}",
-                        f"    **├─ BP Badges**: {captain_info.get('badgeCnt', '?')}",
+                        f"    **├─ Nome do lider**: {captain_info.get('nickname', 'Not found')}",
+                        f"    **├─ Id do líder**: `{captain_info.get('accountId', 'Not found')}`",
+                        f"    **├─ Nivel do líder**: {captain_info.get('level', 'Not found')} (Exp: {captain_info.get('exp', '?')})",
+                        f"    **├─ Último login**: {self.convert_unix_timestamp(int(captain_info.get('lastLoginAt', 'Not found')))}",
+                        f"    **├─ Titulo**: {captain_info.get('title', 'Not found')}",
+                        f"    **├─ Badges**: {captain_info.get('badgeCnt', '?')}",
                         f"    **├─ BR Rank**: {'' if captain_info.get('showBrRank') else 'Not found'} {captain_info.get('rankingPoints', 'Not found')}",
                         f"    **└─ CS Rank**: {'' if captain_info.get('showCsRank') else 'Not found'} {captain_info.get('csRankingPoints', 'Not found')} "
                     ])
@@ -257,7 +257,7 @@ class InfoCommands(commands.Cog):
 
 
 
-            embed.set_footer(text="DEVELOPED BY THUG")
+            embed.set_footer(text="VorteX System")
             await ctx.send(embed=embed)
 
             if region and uid:
